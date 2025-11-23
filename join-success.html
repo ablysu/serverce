@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复制成功 | 加入我们</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        neonGreen: '#39ff14',
+                        neonMagenta: '#ff00ff',
+                        darkBase: '#0a0a0a',
+                        darkCard: '#1a1a1a',
+                    },
+                    animation: {
+                        'glow-reverse': 'glowReverse 2s ease-in-out infinite alternate',
+                        'scan': 'scan 6s linear infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                    },
+                    keyframes: {
+                        glowReverse: {
+                            '0%': { boxShadow: '0 0 10px theme(colors.neonMagenta), 0 0 20px theme(colors.neonMagenta)' },
+                            '100%': { boxShadow: '0 0 20px theme(colors.neonMagenta), 0 0 40px theme(colors.neonMagenta), 0 0 60px theme(colors.neonGreen)' },
+                        },
+                        scan: {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-gradient-dual {
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-image: linear-gradient(45deg, #ff00ff, #39ff14, #ff00ff);
+            }
+            .bg-grid-tech {
+                background-image: 
+                    linear-gradient(rgba(255, 0, 255, 0.08) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 0, 255, 0.08) 1px, transparent 1px);
+                background-size: 25px 25px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-darkBase bg-grid-tech min-h-screen text-white font-sans overflow-x-hidden relative">
+    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-neonMagenta via-neonGreen to-neonMagenta"></div>
+    <div class="absolute inset-0 bg-gradient(0deg, rgba(57, 255, 20, 0.05) 1px, transparent 1px) bg-[length:100%_5px] animate-scan pointer-events-none"></div>
+    <div class="container mx-auto px-6 py-24 relative z-10 flex flex-col items-center justify-center min-h-screen">
+        <div class="text-neonMagenta text-8xl mb-10 animate-bounce-slow">
+            <i class="fa fa-copy"></i>
+        </div>
+        <div class="text-center mb-16">
+            <h1 class="text-[clamp(2.5rem,10vw,4rem)] font-black mb-6 text-gradient-dual">复制成功！</h1>
+            <p class="text-gray-300 text-[clamp(1rem,3vw,1.2rem)] leading-relaxed">
+                客服微信已复制<br>
+                请添加微信详谈合作细节，期待与你携手共赢~
+            </p>
+        </div>
+        <div class="bg-darkCard/80 backdrop-blur-sm rounded-2xl p-8 mb-12 border border-neonMagenta/30 w-full max-w-md">
+            <div class="flex items-center justify-center mb-4">
+                <div class="text-neonMagenta text-4xl mr-4"><i class="fa fa-weixin"></i></div>
+                <h2 class="text-2xl font-bold">合作咨询微信</h2>
+            </div>
+            <div class="text-center text-xl font-mono py-4 bg-darkBase/50 rounded-xl border border-gray-700 mb-4">
+                18566077075
+            </div>
+            <p class="text-gray-400 text-sm text-center">
+                若未自动复制，可手动输入微信号添加
+            </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-6 w-full max-w-md">
+            <a href="weixin://dl/chat?18566077075" class="flex-1 bg-gradient-to-r from-neonMagenta to-neonMagenta/70 rounded-full px-6 py-4 text-lg font-bold text-white text-center animate-glow-reverse">
+                <i class="fa fa-external-link mr-2"></i>跳转微信
+            </a>
+            <a href="index.html" class="flex-1 bg-darkCard/80 border border-gray-700 rounded-full px-6 py-4 text-lg font-bold text-white text-center hover:border-neonGreen/50 transition-colors duration-300">
+                <i class="fa fa-home mr-2"></i>返回首页
+            </a>
+        </div>
+    </div>
+    <div class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-neonGreen via-neonMagenta to-neonGreen"></div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全能服务平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        neonGreen: '#39ff14',
+                        neonMagenta: '#ff00ff',
+                        darkBase: '#0a0a0a',
+                        darkCard: '#1a1a1a',
+                    },
+                    animation: {
+                        'float': 'float 3.5s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'glow-reverse': 'glowReverse 2s ease-in-out infinite alternate',
+                        'scan': 'scan 6s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-15px) rotate(2deg)' },
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 10px theme(colors.neonGreen), 0 0 20px theme(colors.neonGreen)' },
+                            '100%': { boxShadow: '0 0 20px theme(colors.neonGreen), 0 0 40px theme(colors.neonGreen), 0 0 60px theme(colors.neonMagenta)' },
+                        },
+                        glowReverse: {
+                            '0%': { boxShadow: '0 0 10px theme(colors.neonMagenta), 0 0 20px theme(colors.neonMagenta)' },
+                            '100%': { boxShadow: '0 0 20px theme(colors.neonMagenta), 0 0 40px theme(colors.neonMagenta), 0 0 60px theme(colors.neonGreen)' },
+                        },
+                        scan: {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-gradient-dual {
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-image: linear-gradient(45deg, #39ff14, #ff00ff, #39ff14);
+            }
+            .bg-grid-tech {
+                background-image: 
+                    linear-gradient(rgba(57, 255, 20, 0.08) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(57, 255, 20, 0.08) 1px, transparent 1px);
+                background-size: 25px 25px;
+            }
+            .border-glow-green {
+                box-shadow: 0 0 10px theme(colors.neonGreen);
+            }
+            .border-glow-magenta {
+                box-shadow: 0 0 10px theme(colors.neonMagenta);
+            }
+            .text-stroke {
+                -webkit-text-stroke: 0.5px #ffffff33;
+            }
+        }
+    </style>
+</head>
+<body class="bg-darkBase bg-grid-tech min-h-screen text-white font-sans overflow-x-hidden relative">
+    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-neonGreen via-neonMagenta to-neonGreen"></div>
+    <div class="absolute inset-0 bg-gradient(0deg, rgba(255, 0, 255, 0.05) 1px, transparent 1px) bg-[length:100%_5px] animate-scan pointer-events-none"></div>
+    <div class="container mx-auto px-6 py-20 relative z-10">
+        <div class="text-center mb-20 animate-float">
+            <h1 class="text-[clamp(3rem,12vw,5rem)] font-black mb-4 text-gradient-dual text-stroke">全能服务平台</h1>
+            <p class="text-gray-300 text-[clamp(1rem,3vw,1.2rem)] tracking-widest">服务无忧 · 携手共赢</p>
+        </div>
+        <div class="grid grid-cols-2 gap-6 mb-20">
+            <div class="bg-darkCard/80 backdrop-blur-sm rounded-2xl p-7 border border-neonGreen/30 hover:border-neonGreen transition-all duration-500 transform hover:scale-105 group">
+                <div class="text-neonGreen text-4xl mb-5 group-hover:rotate-12 transition-transform duration-500"><i class="fa fa-laptop"></i></div>
+                <h3 class="text-xl font-bold mb-3">电脑维修</h3>
+                <p class="text-gray-400 text-sm">专业检测 · 快速修复</p>
+            </div>
+            <div class="bg-darkCard/80 backdrop-blur-sm rounded-2xl p-7 border border-neonMagenta/30 hover:border-neonMagenta transition-all duration-500 transform hover:scale-105 group" style="animation-delay: 0.1s">
+                <div class="text-neonMagenta text-4xl mb-5 group-hover:rotate-12 transition-transform duration-500"><i class="fa fa-windows"></i></div>
+                <h3 class="text-xl font-bold mb-3">系统安装</h3>
+                <p class="text-gray-400 text-sm">纯净系统 · 驱动齐全</p>
+            </div>
+            <div class="bg-darkCard/80 backdrop-blur-sm rounded-2xl p-7 border border-neonGreen/30 hover:border-neonGreen transition-all duration-500 transform hover:scale-105 group" style="animation-delay: 0.2s">
+                <div class="text-neonGreen text-4xl mb-5 group-hover:rotate-12 transition-transform duration-500"><i class="fa fa-gamepad"></i></div>
+                <h3 class="text-xl font-bold mb-3">游戏陪玩</h3>
+                <p class="text-gray-400 text-sm">大神带飞 · 欢乐开黑</p>
+            </div>
+            <div class="bg-darkCard/80 backdrop-blur-sm rounded-2xl p-7 border border-neonMagenta/30 hover:border-neonMagenta transition-all duration-500 transform hover:scale-105 group" style="animation-delay: 0.3s">
+                <div class="text-neonMagenta text-4xl mb-5 group-hover:rotate-12 transition-transform duration-500"><i class="fa fa-briefcase"></i></div>
+                <h3 class="text-xl font-bold mb-3">工作陪跑</h3>
+                <p class="text-gray-400 text-sm">高效协作 · 助力完成</p>
+            </div>
+        </div>
+        <div class="bg-darkCard/50 backdrop-blur-sm rounded-2xl p-8 mb-20 border border-gray-700 border-glow-green/30">
+            <div class="flex items-center justify-center mb-7">
+                <div class="w-16 h-1 bg-gradient-to-r from-neonGreen to-neonMagenta rounded-full"></div>
+                <h2 class="text-2xl font-bold mx-4 text-gradient-dual">服务保障</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-neonMagenta to-neonGreen rounded-full"></div>
+            </div>
+            <div class="flex flex-col space-y-5">
+                <div class="flex items-center">
+                    <div class="text-neonGreen text-2xl mr-5"><i class="fa fa-check-circle"></i></div>
+                    <span class="text-lg">自带电脑 · 设备专业齐全</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="text-neonMagenta text-2xl mr-5"><i class="fa fa-check-circle"></i></div>
+                    <span class="text-lg">自带工具 · 无需额外准备</span>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col space-y-6 mb-10">
+            <a href="order.html" class="inline-block w-full bg-gradient-to-r from-neonGreen to-neonGreen/70 rounded-full px-8 py-6 text-xl font-bold text-darkBase text-center animate-glow border-glow-green">
+                <i class="fa fa-rocket mr-2"></i>立即下单
+            </a>
+            <div class="flex items-center justify-center">
+                <div class="w-1/3 h-0.5 bg-gray-700"></div>
+                <span class="mx-4 text-gray-500">或者</span>
+                <div class="w-1/3 h-0.5 bg-gray-700"></div>
+            </div>
+            <a href="join.html" class="inline-block w-full bg-gradient-to-r from-neonMagenta to-neonMagenta/70 rounded-full px-8 py-6 text-xl font-bold text-white text-center animate-glow-reverse border-glow-magenta">
+                <i class="fa fa-users mr-2"></i>加入我们
+            </a>
+        </div>
+        <div class="text-center text-gray-500 text-sm">
+            <p>下单后10分钟响应 · 招募长期合伙人</p>
+        </div>
+    </div>
+    <div class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-neonMagenta via-neonGreen to-neonMagenta"></div>
+    <script>
+        const createDualParticles = () => {
+            const container = document.body;
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'absolute rounded-full opacity-70';
+                const size = Math.random() * 10 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.top = `${Math.random() * 100}vh`;
+                particle.style.backgroundColor = Math.random() > 0.5 ? '#39ff14' : '#ff00ff';
+                particle.style.animation = `float ${Math.random() * 6 + 4}s ease-in-out infinite`;
+                particle.style.filter = 'blur(1px)';
+                container.appendChild(particle);
+            }
+        };
+        createDualParticles();
+    </script>
+</body>
+</html>

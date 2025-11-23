@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加入我们 | 携手共赢</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        neonGreen: '#39ff14',
+                        neonMagenta: '#ff00ff',
+                        darkBase: '#0a0a0a',
+                        darkCard: '#1a1a1a',
+                    },
+                    animation: {
+                        'glow-reverse': 'glowReverse 2s ease-in-out infinite alternate',
+                        'scan': 'scan 6s linear infinite',
+                        'float': 'float 3.5s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        glowReverse: {
+                            '0%': { boxShadow: '0 0 10px theme(colors.neonMagenta), 0 0 20px theme(colors.neonMagenta)' },
+                            '100%': { boxShadow: '0 0 20px theme(colors.neonMagenta), 0 0 40px theme(colors.neonMagenta), 0 0 60px theme(colors.neonGreen)' },
+                        },
+                        scan: {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(100%)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-gradient-dual {
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-image: linear-gradient(45deg, #ff00ff, #39ff14, #ff00ff);
+            }
+            .bg-grid-tech {
+                background-image: 
+                    linear-gradient(rgba(255, 0, 255, 0.08) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 0, 255, 0.08) 1px, transparent 1px);
+                background-size: 25px 25px;
+            }
+            .border-glow-magenta {
+                box-shadow: 0 0 10px theme(colors.neonMagenta);
+            }
+        }
+    </style>
+</head>
+<body class="bg-darkBase bg-grid-tech min-h-screen text-white font-sans overflow-x-hidden relative">
+    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-neonMagenta via-neonGreen to-neonMagenta"></div>
+    <div class="absolute inset-0 bg-gradient(0deg, rgba(57, 255, 20, 0.05) 1px, transparent 1px) bg-[length:100%_5px] animate-scan pointer-events-none"></div>
+    <div class="container mx-auto px-6 py-20 relative z-10">
+        <div class="text-center mb-20 animate-float">
+            <h1 class="text-[clamp(2.8rem,12vw,4.5rem)] font-black mb-6 text-gradient-dual">加入我们</h1>
+            <p class="text-gray-300 text-[clamp(1rem,3vw,1.2rem)] max-w-md mx-auto">
+                如果你擅长电脑维修、系统安装、游戏陪玩或工作协作，欢迎加入我们，一起成长共赢！
+            </p>
+        </div>
+        <div class="bg-darkCard/80 backdrop-blur-sm rounded-2xl p-10 mb-16 border border-gray-700 text-center">
+            <div class="text-neonMagenta text-6xl mb-8"><i class="fa fa-handshake-o"></i></div>
+            <h2 class="text-2xl font-bold mb-6">诚招合伙人</h2>
+            <p class="text-gray-400 mb-10">点击下方按钮，复制微信添加后详谈合作细节</p>
+            <button id="joinBtn" class="w-full bg-gradient-to-r from-neonMagenta to-neonMagenta/70 rounded-full px-8 py-6 text-xl font-bold text-white text-center animate-glow-reverse border-glow-magenta">
+                <i class="fa fa-weixin mr-2"></i>点击复制微信
+            </button>
+            <div id="copyTip" class="text-center mt-6 text-neonGreen text-lg hidden">
+                <i class="fa fa-check-circle mr-2"></i>微信已复制，期待你的加入！
+            </div>
+        </div>
+        <div class="grid grid-cols-2 gap-6 mb-16">
+            <div class="bg-darkCard/50 backdrop-blur-sm rounded-xl p-5 border border-neonGreen/30">
+                <div class="text-neonGreen text-3xl mb-3"><i class="fa fa-money"></i></div>
+                <h3 class="text-lg font-bold mb-2">收益可观</h3>
+                <p class="text-gray-400 text-sm">高分成比例，多劳多得</p>
+            </div>
+            <div class="bg-darkCard/50 backdrop-blur-sm rounded-xl p-5 border border-neonMagenta/30">
+                <div class="text-neonMagenta text-3xl mb-3"><i class="fa fa-clock-o"></i></div>
+                <h3 class="text-lg font-bold mb-2">时间自由</h3>
+                <p class="text-gray-400 text-sm">自主安排工作时间</p>
+            </div>
+            <div class="bg-darkCard/50 backdrop-blur-sm rounded-xl p-5 border border-neonGreen/30">
+                <div class="text-neonGreen text-3xl mb-3"><i class="fa fa-users"></i></div>
+                <h3 class="text-lg font-bold mb-2">资源共享</h3>
+                <p class="text-gray-400 text-sm">共享客户资源，无需自行推广</p>
+            </div>
+            <div class="bg-darkCard/50 backdrop-blur-sm rounded-xl p-5 border border-neonMagenta/30">
+                <div class="text-neonMagenta text-3xl mb-3"><i class="fa fa-line-chart"></i></div>
+                <h3 class="text-lg font-bold mb-2">长期发展</h3>
+                <p class="text-gray-400 text-sm">共同成长，拓展更多服务场景</p>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="index.html" class="inline-block text-gray-400 hover:text-neonMagenta transition-colors duration-300">
+                <i class="fa fa-arrow-left mr-2"></i>返回首页
+            </a>
+        </div>
+    </div>
+    <div class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-neonGreen via-neonMagenta to-neonGreen"></div>
+    <script>
+        const wechatNumber = "18566077075";
+        document.getElementById('joinBtn').addEventListener('click', function() {
+            navigator.clipboard.writeText(wechatNumber).then(() => {
+                window.location.href = "join-success.html";
+            }).catch(err => {
+                alert('复制失败，请手动输入微信：' + wechatNumber);
+            });
+        });
+    </script>
+</body>
+</html>
